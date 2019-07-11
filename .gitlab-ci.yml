@@ -1,0 +1,14 @@
+stages:
+  - unit_test
+  - integration_test
+
+job_test1:
+  stage: unit_test
+  image:
+    name: golang:1.12.6-stretch
+    entrypoint: ["/bin/sh", "-c"]
+  variables:
+    GOPATH: /builds/go
+    ELA_PROJECT_DIR: "${GOPATH}/src/github.com/${CI_PROJECT_NAMESPACE}"
+  before_script:
+    - mkdir -p "${GOPATH}/src"
