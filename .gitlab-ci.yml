@@ -1,6 +1,5 @@
 stages:
   - unit_test
-  - integration_test
 
 job_test1:
   stage: unit_test
