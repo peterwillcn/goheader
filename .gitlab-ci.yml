@@ -9,5 +9,5 @@ job_test1:
   variables:
     GOPATH: /builds/go
     ELA_PROJECT_DIR: "${GOPATH}/src/github.com/${CI_PROJECT_NAMESPACE}"
-  before_script:
+  script:
     - mkdir -p "${GOPATH}/src"
