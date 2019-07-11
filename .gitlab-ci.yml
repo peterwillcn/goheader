@@ -11,3 +11,5 @@ job_test1:
     ELA_PROJECT_DIR: "${GOPATH}/src/github.com/${CI_PROJECT_NAMESPACE}"
   script:
     - mkdir -p "${GOPATH}/src"
+
+
