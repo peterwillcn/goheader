@@ -68,13 +68,14 @@ func processHeader(files []string, handler HeaderHandler, check bool) {
 
 		switch action {
 		case "no":
-			defer log.Printf("Don't need to be updated [%s]", file)
+			//defer log.Printf("Don't need to be updated [%s]", file)
 		case "add":
 			if !check {
 				content = header + "\n" + originalContent
 				defer log.Printf("Added header to file [%s]", file)
 				wirteFile(file, content)
 			} else {
+				log.Printf("Please add license to file [%s]", file)
 				os.Exit(1)
 			}
 		case "update":
@@ -87,6 +88,7 @@ func processHeader(files []string, handler HeaderHandler, check bool) {
 				defer log.Printf("Updated header to file [%s]", file)
 				wirteFile(file, content)
 			} else {
+				log.Printf("License context is inconsistent in file [%s]", file)
 				os.Exit(1)
 			}
 		default:
